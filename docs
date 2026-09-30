@@ -1,1 +1,77 @@
-- Meta Data of the project
+* Connect to the Database and then Start the Server ( Best Pratice)
+* camelCase for mongoose Schema
+* Model name should be Caps FirstLetter
+
+* An Edge Case Occured  in Mongo Db there are two documents with same data only unique is thier id 
+
+Document 1 :
+_id : ObjectId('6aba1ae3b7586486842e0c8a')
+firstName : "Rohit"
+lastName : "Sharma"
+password : "hitman"
+age : 42
+gender : "Male"
+__v :0
+
+Document 2 : 
+_id : ObjectId('6aba1ae3b7586486842e0cwew')
+firstName : "Rohit"
+lastName : "Sharma"
+password : "hitman"
+age : 42
+gender : "Male"
+__v :0
+
+
+ Q  What happens if you do findOne(firstName)?Which document will be fetched first ?
+ - const user = await User.findOne({ firstName: "Rohit" });
+ Result -> You will get only one document 
+ But mongoDb does not gurantte which one it internally usually returns first document (like first inserted but no gurrantee)
+
+ Q Using find()  returns all the documents mathcing with the firstName
+ const users = await User.find({firstName : "Rohit"});
+ You will get both documents 
+[
+  { "_id": "A", "firstName": "Rohit", ... },
+  { "_id": "B", "firstName": "Rohit", ... }
+]
+
+Q get latest one 
+- const user = await User
+  .findOne({ firstName: "Rohit" })
+  .sort({ _id: -1 }); // latest
+
+Q get oldest one 
+const user = await User
+  .findOne({ firstName: "Rohit" })
+  .sort({ _id: 1 }); // oldest
+
+Q but in realapps firstname  is not unique email/username is unique 
+you should prevent duplicates
+    username : {
+        type : String,
+        unique : true;
+    }
+
+Q if u dont give any filterObject in findOne 
+-> in my case its returning an first document but document says it returns an random document 
+
+--------------------------------------------------------------------------------------
+
+
+{
+  "emailId": "sankalptatl@gmail.com",
+  "password": "Sankalp@123",
+  "age": 21,
+  "gender": "male",
+  "__v": 0,
+  "preference": "women",
+  "skills": [
+    "JS",
+    "React",
+    "HTML",
+    "Css"
+  ],
+
+Serve@123
+}
