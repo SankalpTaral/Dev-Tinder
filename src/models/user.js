@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         type : String
     },
     emailId : {
-      type : String,
+       type : String,
        required : true,
        unique : true, // emailId duplicacy wont work if u try to add user with same existing emailId on db it will throw Error
        lowercase : true,  // if user enters emailId case anyhow to maintain consistency  like doesnt matter how user enters ill store all of it in lowercase
@@ -45,10 +45,15 @@ const userSchema = new mongoose.Schema({
         // but there is catch this validate function will only work if that document is not present in the db
         // if the document is present in db and u updated the gender : "hello" this will work which is wrong right 
         // so in patch you need to do runValidators : true
-        validate(value){
-            if(!["male","female","others"].includes(value)){
-                throw new Error("Gender not valid ")
-            }
+        // validate(value){
+        //     if(!["male","female","others"].includes(value)){
+        //         throw new Error("Gender not valid ")
+        //     }
+        // }
+
+        enum : {
+            values : ["male","female","others"],
+            message : `{VALUE}i s incorrect status}`
         }
     },
     preference : {
@@ -102,6 +107,7 @@ userSchema.methods.getJWT = function (){
 
  return token;
 }
+
 
 
 

@@ -11,8 +11,10 @@
 - PATCH/profile/password -> to edit password 
 
 # connectionRequestRouter
-- POST/request/send/interested/:userId
-- POST/request/send/ignored/:userId
+<!-- - POST/request/send/interested/:userId
+- POST/request/send/ignored/:userId -->
+//Clubbed 
+POST/request/send/:stauts/:userId
 - POST/request/review/accepted/:requestId
 - POST/request/review/rejected/:requestId
 
