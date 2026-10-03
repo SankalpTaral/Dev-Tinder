@@ -34,9 +34,9 @@ const userAuth = async (req, res, next) => {
     console.log(req.user);
     req.user = user;
 
-    console.log("yoo")
+    // console.log("yoo")
 
-    console.log(req.user);
+    // console.log(req.user);
     
 
     next(); // to move to the request handler

@@ -22,7 +22,7 @@ profileRouter.patch("/profile/edit", userAuth, async (req, res) => {
 
     const data = req.body;
 
-    console.log(user);
+    // console.log(user);
 
     const { _id } = user; // get the id from the user
 
@@ -55,7 +55,7 @@ profileRouter.post("/profile/changePassword", userAuth, async (req, res) => {
 
     const { _id } = user;
 
-    console.log(oldPassword, newPassword);
+    // console.log(oldPassword, newPassword);
 
     const checkPasswordMatch = await bcrypt.compare(oldPassword, user.password);
 

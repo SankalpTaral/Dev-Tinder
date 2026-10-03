@@ -5,13 +5,15 @@ const connectionRequestSchema = new mongoose.Schema(
     //Sender
     fromUserId: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true, 
+      required: true,
+       ref: "User" // it brings data from other collection creates a refernce of collections 
     },
 
     //Reciever
     toUserId: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
+      ref:"User"
     },
 
     status: {

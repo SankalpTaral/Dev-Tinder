@@ -10,9 +10,9 @@ const userSchema = new mongoose.Schema({
         minLength : 4 ,// if length < 4 then it will not add to db 
         maxLength : 50 // if length > 50  then it will not add to db 
     },
-    lastName :{
-        type : String
-    },
+    // lastName :{
+    //     type : String
+    // },
     emailId : {
        type : String,
        required : true,
@@ -36,39 +36,39 @@ const userSchema = new mongoose.Schema({
           }
         }
     },
-    age : {
-        type : Number
-    },
-    gender : {
-        type : String,
-        //validate function if user enters anything apart from given genders he will not be able to add to db
-        // but there is catch this validate function will only work if that document is not present in the db
-        // if the document is present in db and u updated the gender : "hello" this will work which is wrong right 
-        // so in patch you need to do runValidators : true
-        // validate(value){
-        //     if(!["male","female","others"].includes(value)){
-        //         throw new Error("Gender not valid ")
-        //     }
-        // }
+    // age : {
+    //     type : Number
+    // },
+    // gender : {
+    //     type : String,
+    //     //validate function if user enters anything apart from given genders he will not be able to add to db
+    //     // but there is catch this validate function will only work if that document is not present in the db
+    //     // if the document is present in db and u updated the gender : "hello" this will work which is wrong right 
+    //     // so in patch you need to do runValidators : true
+    //     // validate(value){
+    //     //     if(!["male","female","others"].includes(value)){
+    //     //         throw new Error("Gender not valid ")
+    //     //     }
+    //     // }
 
-        enum : {
-            values : ["male","female","others"],
-            message : `{VALUE}i s incorrect status}`
-        }
-    },
-    preference : {
-        type : String
-    },
+    //     enum : {
+    //         values : ["male","female","others"],
+    //         message : `{VALUE}i s incorrect status}`
+    //     }
+    // },
+    // preference : {
+    //     type : String
+    // },
 
-    photoUrl : {
-        type :String,
-        default : "https://img.magnific.com/premium-vector/translator-icon_1076610-18679.jpg?semt=ais_hybrid&w=740&q=80"
-    },
+    // photoUrl : {
+    //     type :String,
+    //     default : "https://img.magnific.com/premium-vector/translator-icon_1076610-18679.jpg?semt=ais_hybrid&w=740&q=80"
+    // },
 
-    about : {
-        type : String,
-        default: "This is a default about of user" // if user doesnt give this field the default value will be stored ->  about : This is a default about of user
-    },
+    // about : {
+    //     type : String,
+    //     default: "This is a default about of user" // if user doesnt give this field the default value will be stored ->  about : This is a default about of user
+    // },
 
     // skills : {
     //     type : [String], // if not given it stores empty array  skills-> Array (empty)

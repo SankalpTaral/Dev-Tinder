@@ -10,10 +10,11 @@ app.use(cookieParser()); // parsing cookie
 const authRouter = require('./routes/auth');
 const profileRouter = require('./routes/profile');
 const requestRouter = require('./routes/requests')
-
+const userRouter = require("./routes/user")
 app.use("/",authRouter);
 app.use("/",profileRouter)
 app.use("/",requestRouter);
+app.use("/",userRouter)
 
 // Following Best Pratice Make Db Connection then make your server start listening
 connectDB()
