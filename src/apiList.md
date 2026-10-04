@@ -26,7 +26,9 @@ POST/request/review/:status/:requestId
 - GET/user/connections-> who all i sent connections 
 - GET/user/requests/recieved -> will get all the connections that were sent to me with interested 
 
--GET/user/feed api -> tinder behaviours its giving me list of 28 users not making an api call for every user ignore/interest so like its jst going to next user no api call is made to bring user
+-GET/user/feed api -> basic not into complex
+-> gets your profiles of other users on platform
+ tinder behaviours its giving me list of 28 users not making an api call for every user ignore/interest so like its jst going to next user no api call is made to bring user
 
 
 
